@@ -21,7 +21,6 @@ const memberSchema = new mongoose.Schema({
 
 
 
-
 const {
   urlencoded
 } = require('express');
@@ -34,14 +33,16 @@ app.use(express.urlencoded({
   urlencoded: true
 }));
 
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
 // Init variables. 
 const daleyDays = ['A', 'B', 'C', 'D', 'E'];
 const furloughs = Array.from({
-  length: 10
+  length: 25
 }, (_, i) => i + 1);
 
+console.log('These are the furloughs');
+console.log(furloughs);
 
 // furloughs start january 2nd and last day is january 16th 2021.
 // furloughs are 14 days long.
@@ -88,6 +89,14 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/members', (req, res) => {
+  // list all the members.
+  res.render('members');
+});
+
+app.post('/members', (req, res) => {
+  // Add new member
+});
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
