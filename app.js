@@ -20,18 +20,15 @@ const memberSchema = new mongoose.Schema({
 });
 
 
-
-const {
-  urlencoded
-} = require('express');
 const port = 3000;
 
 
 const app = express();
 
 app.use(express.urlencoded({
-  urlencoded: true
-}));
+  extended: true
+}))
+
 
 app.set('view engine', 'ejs');
 
@@ -161,6 +158,9 @@ app.post('/login', (req, res) => {
   const password = req.body.password;
 
 });
+
+// TODO add route for creating monthly calendars.
+
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
