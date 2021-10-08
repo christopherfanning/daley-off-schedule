@@ -36,13 +36,16 @@ app.use(express.urlencoded({
 app.set('view engine', 'ejs');
 
 // Init variables. 
-const daleyDays = ['A', 'B', 'C', 'D', 'E'];
-const furloughs = Array.from({
+let calendar = [];
+const daleyDay = ['A', 'A', 'A', 'B', 'B', 'B', 'C', 'C', 'C', 'D', 'D', 'D', 'E', 'E', 'E'];
+const shift = [2, 3, 1];
+
+const furlough = Array.from({
   length: 25
 }, (_, i) => i + 1);
 
 console.log('These are the furloughs');
-console.log(furloughs);
+console.log(furlough);
 
 // furloughs start january 2nd and last day is january 16th 2021.
 // furloughs are 14 days long.
@@ -65,15 +68,64 @@ function buildCalendar(year) {
 
   console.log(`the first date is ${startDate}`);
 
+  // Create the first day of the first furlough of 2021
+  calendar.push({
+    date: startDate.getDate(),
+    year: startDate.getFullYear(),
+    month: startDate.getMonth(),
+    shift: 2,
+    daley: 'A',
+    furlough: 1,
+
+  });
+
+  console.log('This is the getDate function on startDate');
+  console.log(calendar);
+  console.log(startDate.getDate());
+
+  // Inits for the Shift daley and furloughs
+  let s = 1;
+  let d = 1;
+  let f = 0;
+
+  let furloughDayCounter = 0;
+
   do {
-    console.log(startDate.toLocaleDateString('en-US'));
-    console.log(startDate.toLocaleDateString('en-US') + " is the current date.");
-    console.log(`${endDate.toLocaleDateString('en-US')} is the endDate `);
+    // console.log(startDate.toLocaleDateString('en-US'));
+    // console.log(startDate.toLocaleDateString('en-US') + " is the current date.");
+    // console.log(`${endDate.toLocaleDateString('en-US')} is the endDate `);
+
+    // reset daley day back to beginning
+    if (d == 15) {
+      d = 0;
+      f++;
+    }
+
+    // reset shift day. 
+    if (s == 3) {
+      s = 0;
+    }
+
+
     startDate = startDate.addDays(1);
+    calendar.push({
+      date: startDate.getDate(),
+      year: startDate.getFullYear(),
+      month: startDate.getMonth(),
+      shift: shift[s],
+      daley: daleyDay[d],
+      furlough: furlough[f],
+    });
+
+    d++
+    s++
+
     // store the dateRunner with daley and furlough attributes.
   } while (startDate.toLocaleDateString('en-US') !== endDate.toLocaleDateString('en-US'));
 
 
+  console.log("This should be the full calendar object.");
+  console.log(calendar);
   console.log(`after adding one to the date it's now ${startDate}`);
 
   // build array of each day
@@ -81,6 +133,7 @@ function buildCalendar(year) {
 }
 
 buildCalendar();
+
 
 app.get('/', (req, res) => {
   // lets create a 'day' object.  
