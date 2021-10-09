@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A collection of unofficial tools for CFD">
+  <title>Unofficial CFD tools</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="./css/bootstrap-5.1.1-dist/css/bootstrap.min.css">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+  <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+  <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+  <meta name="theme-color" content="#7952b3">
+
+  <!-- 
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+<!-- TODO This should be a modal -->
+  <!-- Custom styles for this template -->
+  <link href="./css/style.css" rel="stylesheet">
+</head>
+
+<div class="bg-dark text-center text-light">
+  <div class="d-flex h-100 w-100 text-center text-white bg-dark tall">
+
+    <div class="container d-flex w-100 h-100">
+      <header class="w-100">
+        <div>
+          <h3 class="float-md-start mb-0">CFD<span class="stamped">[uno]</span></h3>
+          <!-- <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Contact</a>
+          </nav> -->
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <div class="container bg-dark text-white d-flex justify-content-center align-content-center w-100 tall">
+    <main class="align-content-center justify-content-center">
+      <h1><span class="stamped">[Unofficial]</span></h1>
+      <h1>Daley off Schedule</h1>
+
+      <body class="text-center">
+
+        <main class="form-signin">
+          <form action="/member" method="POST">
+            <h1 class="h3 mb-3 fw-normal">Create New Member</h1>
+
+            <h3>Member Information:</h3>
+            <!-- TODO add section for rank.  Radio buttons or check boxes or dropdown.  -->
+            <div class="form-floating text-dark">
+              <input type="text" class="form-control" id="floatingInput" placeholder="Ludwig Beethoven"
+                name="member-name" required autocomplete="on">
+              <label for="floatingInput">Member name</label>
+            </div>
+            <div class="form-floating text-dark">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password"
+                required autocomplete="on">
+              <label for="floatingPassword">Password</label>
+            </div>
+
+            <h3>Member's shift</h3>
+            <div id="memberShift">
+              <input type="radio" class="btn-check" name="memberShift" id="1" value="1" required autocomplete="on"
+                checked>
+              <label class="btn-lg btn-outline-primary" for='1'>1</label>
+              <input type="radio" class="btn-check" name="memberShift" id="2" value="2">
+              <label class="btn-lg btn-outline-primary" for="2">2</label>
+              <input type="radio" class="btn-check" name="memberShift" id="3" value="3">
+              <label class="btn-lg btn-outline-primary" for="3">3</label>
+            </div>
+
+            <h3>Member's Daley Day</h3>
+            <div id="memberDaley">
+              <input type="radio" class="btn-check" name="memberDaley" id="A" value="A" required autocomplete="on"
+                checked>
+              <label class="btn-lg btn-outline-primary" for='A'>A</label>
+              <input type="radio" class="btn-check" name="memberDaley" id="B" value="B">
+              <label class="btn-lg btn-outline-primary" for="B">B</label>
+              <input type="radio" class="btn-check" name="memberDaley" id="C" value="C">
+              <label class="btn-lg btn-outline-primary" for="C">C</label>
+              <input type="radio" class="btn-check" name="memberDaley" id="D" value="D">
+              <label class="btn-lg btn-outline-primary" for="D">D</label>
+              <input type="radio" class="btn-check" name="memberDaley" id="E" value="E">
+              <label class="btn-lg btn-outline-primary" for="E">E</label>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-success" type="submit">Save Member</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+          </form>
+        </main>
+
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Color</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Turtle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Blue</th>
+              <td>Leonardo</td>
+              <td>da Vinci</td>
+              <td>Leo</td>
+            </tr>
+            <tr>
+              <th scope="row">Red</th>
+              <td>Raffaello</td>
+              <td>Sanzio da Urbino</td>
+              <td>Raph</td>
+            </tr>
+            <tr>
+              <th scope="row">Purple</th>
+              <td>Donato</td>
+              <td>di Niccolò di Betto Bardi</td>
+              <td>Donnie</td>
+            </tr>
+            <tr>
+              <th scope="row">Orange</th>
+              <td>Michelangelo</td>
+              <td>di Lodovico Buonarroti Simoni</td>
+              <td>Mikey</td>
+            </tr>
+          </tbody>
+        </table>
+    </main>
+  </div>
+
+</div>
+
+</body>
+
+</html>

@@ -31,6 +31,7 @@ app.use(express.urlencoded({
 
 
 app.set('view engine', 'ejs');
+app.use(express.static("public"));
 
 // Init variables. 
 let calendar = [];
@@ -104,7 +105,9 @@ function buildCalendar(year) {
     }
 
 
+    // increment day
     startDate = startDate.addDays(1);
+
     calendar.push({
       date: startDate.getDate(),
       year: startDate.getFullYear(),
@@ -135,7 +138,7 @@ buildCalendar();
 app.get('/', (req, res) => {
   // lets create a 'day' object.  
   // let day = new Date();
-  buildCalendar();
+  // buildCalendar();
   res.render('index');
 });
 
@@ -146,6 +149,7 @@ app.get('/members', (req, res) => {
 
 app.post('/members', (req, res) => {
   // Add new member
+  // Save the member data object to the currently logged in user.
 });
 
 app.get('/login', (req, res) => {
@@ -160,7 +164,9 @@ app.post('/login', (req, res) => {
 });
 
 // TODO add route for creating monthly calendars.
-
+app.get('/create', (req, res) => {
+  res.render('create-calendar');
+});
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
