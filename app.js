@@ -19,7 +19,9 @@ const memberSchema = new mongoose.Schema({
   platoon: String
 });
 
+// furloughs.forEach(element => {
 
+// });
 const port = 3000;
 
 
@@ -125,7 +127,16 @@ function buildCalendar(year) {
 
 
   console.log("This should be the full calendar object.");
-  console.log(calendar);
+  // console.log(calendar);
+  calendar.forEach(element => {
+    // process.stdout.write(util.inspect(mydata, {
+    //   colors: true,
+    //   depth: 5,
+    //   maxArrayLength: 20
+    // }));
+    process.stdout.write(JSON.stringify(element) + '\n');
+  });
+
   console.log(`after adding one to the date it's now ${startDate}`);
 
   // build array of each day
@@ -165,7 +176,9 @@ app.post('/login', (req, res) => {
 
 // TODO add route for creating monthly calendars.
 app.get('/create', (req, res) => {
-  res.render('create-calendar');
+  res.render('create-calendar', {
+    furloughs: furlough
+  });
 });
 
 app.listen(port, () => {

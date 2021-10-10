@@ -83,3 +83,10 @@ body {
   margin: 0 1rem;
   padding: 0 2rem;
 }
+
+
+.furloughs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+}
