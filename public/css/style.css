@@ -78,15 +78,59 @@ body {
 }
 
 
+#memberModal {
+  background-color: #333;
+  display: none;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#close h1 {
+  position: absolute;
+  right: 0;
+  color: red;
+
+}
+
+#close:hover {
+  cursor: pointer;
+}
+
+#memberName {
+  width: 50%;
+}
+
+/* #floatingInput {
+  width: 50%;
+  margin: auto;
+} */
+
 #memberShift label {
   font-size: 3em;
   margin: 0 1rem;
   padding: 0 2rem;
 }
 
+#memberDaley label {
+  font-size: 2rem;
+  margin: 1rem;
+  padding: 1rem 2rem;
+}
 
 .furloughs {
   display: flex;
   flex-wrap: wrap;
   width: 80vw;
+  justify-content: center;
+  margin-bottom: 1rem;
+  justify-content: space-around;
+  /* align-items: ; */
+}
+
+.furloughs label {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  margin: .8rem;
 }

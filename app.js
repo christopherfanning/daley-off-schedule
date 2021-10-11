@@ -153,14 +153,25 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/members', (req, res) => {
+app.get('/member', (req, res) => {
   // list all the members.
   res.render('members');
 });
 
-app.post('/members', (req, res) => {
+app.post('/member', (req, res) => {
   // Add new member
   // Save the member data object to the currently logged in user.
+  const name = req.body.memberName;
+  const rank = req.body.rank;
+  const levelOfCare = req.body.levelOfCare;
+  const shift = req.body.shift;
+  const daley = req.body.daley;
+  const furloughs = req.body.furloughs;
+
+  console.log(shift);
+  console.log(daley);
+  console.log(levelOfCare);
+  console.log(rank);
 });
 
 app.get('/login', (req, res) => {

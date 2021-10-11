@@ -19,174 +19,180 @@
   <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
   <meta name="theme-color" content="#7952b3">
 
-  <!-- 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-
-<!-- TODO This should be a modal -->
   <!-- Custom styles for this template -->
   <link href="./css/style.css" rel="stylesheet">
 </head>
 
-<div class="bg-dark text-center text-light">
-  <div class="d-flex h-100 w-100 text-center text-white bg-dark tall">
 
-    <div class="container d-flex w-100 h-100">
-      <header class="w-100">
-        <div>
-          <h3 class="float-md-start mb-0">CFD<span class="stamped">[uno]</span></h3>
-          <!-- <nav class="nav nav-masthead justify-content-center float-md-end">
+<body class="text-center">
+  <div class="bg-dark text-center text-light">
+    <div class="d-flex h-100 w-100 text-center text-white bg-dark tall">
+
+      <div class="container d-flex w-100 h-100">
+        <header class="w-100">
+          <div>
+            <h3 class="float-md-start mb-0">CFD<span class="stamped">[uno]</span></h3>
+            <!-- <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
             <a class="nav-link" href="#">Features</a>
             <a class="nav-link" href="#">Contact</a>
           </nav> -->
-        </div>
-      </header>
+          </div>
+        </header>
+      </div>
     </div>
-  </div>
 
-  <div class="container bg-dark text-white d-flex justify-content-center align-content-center w-100 tall">
-    <main class="align-content-center justify-content-center">
-      <h1><span class="stamped">[Unofficial]</span></h1>
-      <h1>Daley off Schedule</h1>
+    <div class="container bg-dark text-white d-flex justify-content-center align-content-center w-100 tall">
+      <main class="align-content-center justify-content-center">
+        <h1><span class="stamped">[Unofficial]</span></h1>
+        <h1>Daley off Schedule</h1>
+        <div id="memberModal">
+          <!-- TODO This should be a modal -->
+          <div class="container">
+            <main class="form-signin">
+              <form action="/member" method="POST">
+                <h1 class="h3 mb-3 fw-normal">Create New Member</h1>
 
-      <body class="text-center">
+                <div id="close">
+                  <h1>X</h1>
+                </div>
+                <h3>Member Information:</h3>
 
-        <main class="form-signin">
-          <form action="/member" method="POST">
-            <h1 class="h3 mb-3 fw-normal">Create New Member</h1>
+                <div id="rank">
+                  <input type="radio" class="btn-check" name="rank" id="Firefighter" value="Firefighter" required
+                    autocomplete="on" checked>
+                  <label class="btn-lg btn-outline-primary" for='Firefighter'>Firefighter</label>
+                  <input type="radio" class="btn-check" name="rank" id="Engineer" value="Engineer" required
+                    autocomplete="on">
+                  <label class="btn-lg btn-outline-primary" for='Engineer'>Engineer</label>
+                  <input type="radio" class="btn-check" name="rank" id="Lieutenant" value="Lieutenant" required
+                    autocomplete="on">
+                  <label class="btn-lg btn-outline-primary" for='Lieutenant'>Lieutenant</label>
+                  <input type="radio" class="btn-check" name="rank" id="Captain" value="Captain" required
+                    autocomplete="on">
+                  <label class="btn-lg btn-outline-primary" for='Captain'>Captain</label>
+                </div>
 
-            <h3>Member Information:</h3>
-            <select class="form-select" name="rank" id="rank">
-              <option value="Capt">Captain</option>
-              <option value="Lieutenant">Lieutenant</option>
-              <option value="Engineer">Engineer</option>
-              <option value="Firefighter">Firefighter</option>
-            </select>
-
-            <div id="level-of-care">
-              <input type="radio" class="btn-check" name="level-of-care" id="EMT-B" value="EMT-B" required
-                autocomplete="on" checked>
-              <label class="btn-lg btn-outline-primary" for='EMT-B'>EMT-B</label>
-              <input type="radio" class="btn-check" name="level-of-care" id="EMT-P" value="EMT-P">
-              <label class="btn-lg btn-outline-primary" for="EMT-P">EMT-P</label>
-              <input type="radio" class="btn-check" name="level-of-care" id="Responder" value="Responder">
-              <label class="btn-lg btn-outline-primary" for="Responder">Responder</label>
-            </div>
+                <div id="level-of-care">
+                  <input type="radio" class="btn-check" name="levelOfCare" id="EMT-B" value="EMT-B" required
+                    autocomplete="on" checked>
+                  <label class="btn-lg btn-outline-primary" for='EMT-B'>EMT-B</label>
+                  <input type="radio" class="btn-check" name="levelOfCare" id="EMT-P" value="EMT-P">
+                  <label class="btn-lg btn-outline-primary" for="EMT-P">EMT-P</label>
+                  <input type="radio" class="btn-check" name="levelOfCare" id="Responder" value="Responder">
+                  <label class="btn-lg btn-outline-primary" for="Responder">Responder</label>
+                </div>
 
 
-            <div class="form-floating text-dark">
-              <input type="text" class="form-control" id="floatingInput" placeholder="Ludwig Beethoven"
-                name="member-name" required autocomplete="on">
-              <label for="floatingInput">Member name</label>
-            </div>
-            <div class="form-floating text-dark">
-              <input type="text" class="form-control" id="floatingPassword" placeholder="Password" name="password"
-                required autocomplete="on">
-              <label for="floatingPassword">Password</label>
-            </div>
+                <div class="form-floating text-dark ">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="Ludwig Beethoven"
+                    name="memberName" required autocomplete="on">
+                  <label for="floatingInput">Member name</label>
+                </div>
 
-            <h3>Member's shift</h3>
-            <div id="memberShift">
-              <input type="radio" class="btn-check" name="memberShift" id="1" value="1" required autocomplete="on"
-                checked>
-              <label class="btn-lg btn-outline-primary" for='1'>1</label>
-              <input type="radio" class="btn-check" name="memberShift" id="2" value="2">
-              <label class="btn-lg btn-outline-primary" for="2">2</label>
-              <input type="radio" class="btn-check" name="memberShift" id="3" value="3">
-              <label class="btn-lg btn-outline-primary" for="3">3</label>
-            </div>
+                <h3>Member's shift</h3>
+                <div id="memberShift">
+                  <input type="radio" class="btn-check" name="shift" id="1" value="1" required autocomplete="on"
+                    checked>
+                  <label class="btn-lg btn-outline-primary" for='1'>1</label>
+                  <input type="radio" class="btn-check" name="shift" id="2" value="2">
+                  <label class="btn-lg btn-outline-primary" for="2">2</label>
+                  <input type="radio" class="btn-check" name="shift" id="3" value="3">
+                  <label class="btn-lg btn-outline-primary" for="3">3</label>
+                </div>
 
-            <h3>Member's Daley Day</h3>
-            <div id="memberDaley">
-              <input type="radio" class="btn-check" name="memberDaley" id="A" value="A" required autocomplete="on"
-                checked>
-              <label class="btn-lg btn-outline-primary" for='A'>A</label>
-              <input type="radio" class="btn-check" name="memberDaley" id="B" value="B">
-              <label class="btn-lg btn-outline-primary" for="B">B</label>
-              <input type="radio" class="btn-check" name="memberDaley" id="C" value="C">
-              <label class="btn-lg btn-outline-primary" for="C">C</label>
-              <input type="radio" class="btn-check" name="memberDaley" id="D" value="D">
-              <label class="btn-lg btn-outline-primary" for="D">D</label>
-              <input type="radio" class="btn-check" name="memberDaley" id="E" value="E">
-              <label class="btn-lg btn-outline-primary" for="E">E</label>
-            </div>
+                <h3>Member's Daley Day</h3>
+                <div id="memberDaley">
+                  <input type="radio" class="btn-check" name="daley" id="A" value="A" required autocomplete="on"
+                    checked>
+                  <label class="btn-lg btn-outline-primary" for='A'>A</label>
+                  <input type="radio" class="btn-check" name="daley" id="B" value="B">
+                  <label class="btn-lg btn-outline-primary" for="B">B</label>
+                  <input type="radio" class="btn-check" name="daley" id="C" value="C">
+                  <label class="btn-lg btn-outline-primary" for="C">C</label>
+                  <input type="radio" class="btn-check" name="daley" id="D" value="D">
+                  <label class="btn-lg btn-outline-primary" for="D">D</label>
+                  <input type="radio" class="btn-check" name="daley" id="E" value="E">
+                  <label class="btn-lg btn-outline-primary" for="E">E</label>
+                </div>
 
-            <h3>Furloughs</h3>
-            <div class="furloughs">
+                <h3>Furloughs</h3>
+                <div class="furloughs">
 
-              <%furloughs.forEach(element => { %>
+                  <%furloughs.forEach(element => { %>
 
-              <div class="form-check">
-                <input type="checkbox" class="btn-check" id="furlough<%= element %>" value="<%= element %>">
-                <label class="btn btn-outline-primary" for="furlough<%= element %>"><%= element %></label><br>
-              </div>
+                  <div class="form-check">
+                    <input name="furloughs" type="checkbox" class="btn-check" id="furlough<%= element %>"
+                      value="<%= element %>">
+                    <label class="btn btn-outline-primary" for="furlough<%= element %>"><%= element %></label><br>
+                  </div>
 
-              <% }); %>
+                  <% }); %>
 
-            </div>
+                </div>
 
-  </div>
+                <button class="w-60 btn btn-lg btn-success" type="submit">Save Member</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+              </form>
 
-  <button class="w-100 btn btn-lg btn-success" type="submit">Save Member</button>
-  <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-  </form>
-  </main>
+            </main>
+          </div>
+        </div>
+    </div>
+</body>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Color</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Turtle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Blue</th>
+      <td>Leonardo</td>
+      <td>da Vinci</td>
+      <td>Leo</td>
+    </tr>
+    <tr>
+      <th scope="row">Red</th>
+      <td>Raffaello</td>
+      <td>Sanzio da Urbino</td>
+      <td>Raph</td>
+    </tr>
+    <tr>
+      <th scope="row">Purple</th>
+      <td>Donato</td>
+      <td>di Niccolò di Betto Bardi</td>
+      <td>Donnie</td>
+    </tr>
+    <tr>
+      <th scope="row">Orange</th>
+      <td>Michelangelo</td>
+      <td>di Lodovico Buonarroti Simoni</td>
+      <td>Mikey</td>
+    </tr>
+  </tbody>
+</table>
 
-  <table class="table table-dark table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Color</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Turtle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Blue</th>
-        <td>Leonardo</td>
-        <td>da Vinci</td>
-        <td>Leo</td>
-      </tr>
-      <tr>
-        <th scope="row">Red</th>
-        <td>Raffaello</td>
-        <td>Sanzio da Urbino</td>
-        <td>Raph</td>
-      </tr>
-      <tr>
-        <th scope="row">Purple</th>
-        <td>Donato</td>
-        <td>di Niccolò di Betto Bardi</td>
-        <td>Donnie</td>
-      </tr>
-      <tr>
-        <th scope="row">Orange</th>
-        <td>Michelangelo</td>
-        <td>di Lodovico Buonarroti Simoni</td>
-        <td>Mikey</td>
-      </tr>
-    </tbody>
-  </table>
-  </main>
-</div>
+<button id='createMember'>Create Member</button>
+</main>
 
-</div>
+<script>
+  document.getElementById('createMember').onclick = function () {
+    console.log('I have been clicked. ');
 
+    document.getElementById('memberModal').style.position = "absolute";
+    document.getElementById('memberModal').style.display = "block";
+  }
+
+  document.getElementById('close').onclick = function () {
+    document.getElementById('memberModal').style.display = "none";
+  }
+</script>
 </body>
 
 </html>
